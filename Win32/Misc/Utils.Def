@@ -1,0 +1,7 @@
+FUNCTION ConvertToSpacy (text: String): String;
+(* Inserts space after each char of input string.
+   Returns a result string with the spaces *)
+PROCEDURE ExitGame ;
+(* Exits to OS *)
+FUNCTION FileExists (fileName: String): BOOLEAN;
+(* Returns TRUE if filename exists *)

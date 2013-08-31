@@ -1,0 +1,16 @@
+@SET Lib=..\..\..\..\WinDev\Lib
+@SET Obj=%Lib%\Obj
+@SET tcc=..\..\..\..\WinDev\Bin\tcc\tcc.exe
+
+@IF EXIST ..\%1.c GOTO levelup
+..\%tcc% -c %1.c -I ".." -I ..\%Lib% -I ..\%Obj%
+@GOTO exit
+
+:levelup
+CD ..
+%tcc% -c %1.c -I "." -I %Lib% -I %Obj%
+@IF errorlevel 1 PAUSE
+
+
+:exit
+@IF errorlevel 1 PAUSE
