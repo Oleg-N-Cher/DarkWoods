@@ -9,8 +9,6 @@
 :levelup
 CD ..
 %tcc% -c %1.c -I "." -I %Lib% -I %Obj%
-@IF errorlevel 1 PAUSE
-
 
 :exit
 @IF errorlevel 1 PAUSE
