@@ -27,6 +27,9 @@ Unpack DarkWoods into XDev folder. Must be at XDev/Games/DarkWoods
 
 Open a module from Win32/Mod (or ZxSpec/Mod) and rebuild/start (F12).
 
+If you want to port the game to a new platform, please contact me:
+http://zx.oberon2.ru/send.htm
+
 
 Oleg N. Cher
 VEDAsoft Oberon Club
