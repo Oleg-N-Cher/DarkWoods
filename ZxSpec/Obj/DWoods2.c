@@ -18,7 +18,6 @@ export void *DWoods2__init(void)
 /* BEGIN */
 	Basic_Init();
 	SemiAction_MainMenu();
-	Basic_PAUSE(0);
 	Basic_Quit();
 	__ENDMOD;
 }
