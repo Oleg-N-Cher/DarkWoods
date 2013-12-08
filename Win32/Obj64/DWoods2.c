@@ -17,7 +17,6 @@ export main(int argc, char **argv)
 	__REGMAIN("DWoods2", 0);
 /* BEGIN */
 	SemiAction_MainMenu();
-	GrScr_Update();
 	GrScr_Close();
 	__FINI;
 }

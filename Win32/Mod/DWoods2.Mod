@@ -8,9 +8,6 @@ BEGIN
   (* init screen *)
   (*==========Scr.Clear(Scr.GrayOnBlue);*)
   (* start stuff *)
-  (* LOOP *)
-    SemiAction.MainMenu;
-  (*END*)
-  Kernel.Update;
+  SemiAction.MainMenu;
   Kernel.Close;
 END DWoods2.

@@ -21,5 +21,10 @@ CONST
   JockeY*      = 14;
   MenuLineX*   =  2;
   MenuLineY*   = 20;
+  QuitMenuX*   =  2;
+  QuitMenuY*   =  7;
+  QuitTitlePos*   =  QuitMenuX + 3;
+  QuitMenuWidth*  = 32;
+  QuitMenuHeight* =  5;
 
 END DW2Config.
