@@ -1,0 +1,1 @@
+@COPY /b MsDosCga8x8.bin + ZxSpecRom8x8bi.bin + DWRsrc.bin ..\Obj\Rsrc.bin

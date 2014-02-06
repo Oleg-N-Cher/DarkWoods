@@ -1,0 +1,10 @@
+Manifest-Version: 1.0
+MIDlet-Vendor: VEDAsoft Oberon Club
+MIDlet-1: DarkWoods, /icon.png, CP.GrScr.GrScr_Midlet
+MIDlet-Name: DarkWoods
+MIDlet-Version: 1.0
+MicroEdition-Configuration: CLDC-1.0
+MicroEdition-Profile: MIDP-1.0
+MIDlet-Icon: /icon.png
+MIDlet-Jar-URL: DarkWoods.jar
+MIDlet-Jar-Size: ###SIZE###

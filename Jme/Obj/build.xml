@@ -1,0 +1,30 @@
+<project name="DarkWoods" default="dist" basedir=".">
+
+	<!-- Set global properties for this build -->
+	<property name="jarsizetask/lib" location="..\Bin\jarsizetask.jar" />
+
+	<taskdef name="jarsize" classname="JarSizeTask" classpath="${jarsizetask/lib}" />
+	
+	<!--  Target: dist  -->
+	<target name="dist" description="Generate the distribution">
+		<mkdir dir="${dist}/bin" />
+		<jar destfile="${dist}/${ant.project.name}.jar" manifest="MANIFEST.MF">
+			<fileset dir="${build}/preverified" />
+			<fileset dir=".">
+				<include name="icon.png" />
+				<include name="Rsrc.bin" />
+				<!-- <exclude name="Rsrc/AlmasAlter.png" /> -->
+			</fileset>
+		</jar>
+		<jarsize file="${dist}/${ant.project.name}.jar" />
+		<unjar src="${dist}/${ant.project.name}.jar" dest="${dist}/bin">
+			<patternset includes="META-INF/MANIFEST.MF" />
+		</unjar>
+		<move file="${dist}/bin/META-INF/MANIFEST.MF" tofile="${dist}/${ant.project.name}.jad" />
+		<move file="${dist}/${ant.project.name}.jar" tofile="../${ant.project.name}.jar" />
+		<move file="${dist}/${ant.project.name}.jad" tofile="../${ant.project.name}.jad" />
+		<delete dir="${build}" />
+		<delete dir="${dist}" />
+	</target>
+	
+</project>
