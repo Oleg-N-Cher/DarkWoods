@@ -1,4 +1,4 @@
-MODULE DarkWoods;
+MODULE DarkWoods; (*$MAIN*)
 
 IMPORT
   Cfg := DWConfig, Rsrc := DWRsrc,
@@ -44,14 +44,14 @@ PROCEDURE BlinkEffect (x, y: Scr.Coords; VAR lines: ARRAY OF ARRAY OF CHAR);
 VAR
   x1, y1: Til.Coords;
 BEGIN
-  FOR x1 := 0 TO LEN(lines, 1) - 2 DO
+  FOR x1 := 0 TO SHORT(SHORT(LEN(lines, 1))) - 2 DO
     Scr.SetColors(Scr.LWhiteOnBlack);
-    FOR y1 := 0 TO LEN(lines, 0) - 1 DO
+    FOR y1 := 0 TO SHORT(SHORT(LEN(lines, 0))) - 1 DO
       Scr.At(x + x1, y + y1); Scr.WriteCh(lines[y1, x1]);
     END;
     GrScr.Update; Timer.Delay(10);
     Scr.SetColors(Scr.Blue);
-    FOR y1 := 0 TO LEN(lines, 0) - 1 DO
+    FOR y1 := 0 TO SHORT(SHORT(LEN(lines, 0))) - 1 DO
       Scr.At(x + x1, y + y1); Scr.WriteCh(lines[y1, x1]);
     END;
   END;
@@ -197,7 +197,7 @@ PROCEDURE WriteCenter* (IN text: ARRAY OF CHAR);
 VAR
   n: Scr.Coords;
 BEGIN
-  n := SHORT((Cfg.ScreenWidth - LEN(text)) DIV 2);
+  n := SHORT((Cfg.ScreenWidth - SHORT(LEN(text))) DIV 2);
   WHILE n > 0 DO Scr.WriteCh(" "); DEC(n) END;
   Scr.WriteStrLn(text);
 END WriteCenter;
@@ -256,13 +256,13 @@ BEGIN
   IF JME THEN (* Cfg.ScreenWidth = 30 *)
     (* Page 1: *)
     Scr.Clear(Scr.Black); Scr.SetColors(Scr.WhiteOnBlack);
-    Scr.WriteStr("   : I am "); Draw(1, 0, Eduin);
+    Scr.WriteStr("  : I am "); Draw(1, 0, Eduin);
       Scr.SetColors(Scr.GreenOnBlack); Scr.WriteStr("Eduin");
       Scr.SetColors(Scr.WhiteOnBlack); Scr.WriteStrLn(", the fearless");
-    Scr.WriteStrLn("     adventurer.");
+    Scr.WriteStrLn("    adventurer.");
       Scr.WriteLn;
-    Scr.WriteStrLn("   You can move me around");
-    Scr.WriteStr("   using the ");
+    Scr.WriteStrLn(" You can move me around");
+    Scr.WriteStr(" using the ");
       Scr.SetColors(Scr.LGreenOnBlack); Scr.WriteStrLn("arrow keys.");
       Scr.SetColors(Scr.WhiteOnBlack); Scr.WriteLn;
     Scr.WriteStr(" Press the ");
@@ -673,23 +673,21 @@ BEGIN
 
   thanx[0] := "Thanx for playing DARK WOOD";
   thanx[1] := "by Jocke The Beast.        ";
+  Scr.Clear(Scr.Black); Scr.SetColors(Scr.BlueOnBlack);
+  Scr.At(QuitThanxX, 0 + QuitThanxY); Scr.WriteStr(thanx[0]);
+  Scr.WriteCh("S"); (* YES! This letter not blinks. *)
+  Scr.At(QuitThanxX, 1 + QuitThanxY); Scr.WriteStr(thanx[1]);
+  BlinkEffect(QuitThanxX, QuitThanxY, thanx);
+  Scr.At(0, 4 + QuitThanxY);
 
   IF JME THEN (* Cfg.ScreenWidth = 30 *)
 
-    Scr.Clear(Scr.Black); Scr.SetColors(Scr.BlueOnBlack);
-    Scr.WriteLn; Scr.WriteLn; Scr.WriteLn;
-    Scr.At(QuitThanxX, 0 + QuitThanxY); Scr.WriteStr(thanx[0]);
-    Scr.WriteCh("S"); (* YES! This letter not blinks. *)
-    Scr.At(QuitThanxX, 1 + QuitThanxY); Scr.WriteStr(thanx[1]);
-    BlinkEffect(QuitThanxX, QuitThanxY, thanx);
-
-    Scr.At(0, 3 + QuitThanxY);
     Scr.WriteStrLn(" Credits:"); Scr.SetColors(Scr.GreenOnBlack);
     Scr.WriteStrLn(" Game made by:Jocke The Beast");
     Scr.WriteStrLn(" Graphic:     Microsoft ASCII");
     Scr.WriteStrLn(" Idea by:     Zack Johnson");
     Scr.WriteStrLn(" Beta-tester: Jonge");
-    Scr.WriteStrLn(" J2ME port by:Oleg N. Cher"); Scr.WriteLn; Scr.WriteLn;
+    Scr.WriteStrLn(" Java port by:Oleg N. Cher"); Scr.WriteLn; Scr.WriteLn;
     Scr.SetColors(Scr.WhiteOnBlack);
     Scr.WriteStrLn("This game is a tribute to Zack");
     Scr.WriteStrLn("Johnson. He made a game called");
@@ -701,15 +699,12 @@ BEGIN
 
   ELSIF ZX THEN (* Cfg.ScreenWidth = 32 *)
 
-    Scr.Clear(Scr.Black); Scr.SetColors(Scr.BlueOnBlack);
-    Scr.WriteLn; Scr.WriteLn; Scr.WriteLn; Scr.WriteLn;
-    Scr.WriteStrLn("  Thanx for playing DARK WOODS");
-    Scr.WriteStrLn("  by Jocke The Beast."); Scr.WriteLn; Scr.WriteLn;
     Scr.WriteStrLn(" Credits:"); Scr.SetColors(Scr.GreenOnBlack);
     Scr.WriteStrLn(" Game made by:  Jocke The Beast");
     Scr.WriteStrLn(" Graphic:       Microsoft ASCII");
     Scr.WriteStrLn(" Idea by:       Zack Johnson");
-    Scr.WriteStrLn(" Beta-tester:   Jonge"); Scr.WriteLn; Scr.WriteLn;
+    Scr.WriteStrLn(" Beta-tester:   Jonge");
+    Scr.WriteStrLn(" Speccy port by:Oleg N. Cher"); Scr.WriteLn; Scr.WriteLn;
     Scr.SetColors(Scr.WhiteOnBlack);
     Scr.WriteStrLn(" This game is a tribute to Zack");
     Scr.WriteStrLn(" Johnson. He made a game called");
@@ -717,14 +712,10 @@ BEGIN
     Scr.WriteStrLn(" A game that I thought was very");
     Scr.WriteStrLn(" funny to play, and still do."); Scr.WriteLn;
     Scr.SetColors(Scr.MagentaOnBlack);
-    Scr.WriteStr("http://geocities.ws/jockeqbasic");
+    Scr.WriteStrLn("http://geocities.ws/jockeqbasic");
 
   ELSE (* Cfg.ScreenWidth = 40 *)
 
-    Scr.Clear(Scr.Black); Scr.SetColors(Scr.BlueOnBlack);
-    Scr.WriteLn; Scr.WriteLn; Scr.WriteLn; Scr.WriteLn;
-    Scr.WriteStrLn("    Thanx for playing DARK WOODS");
-    Scr.WriteStrLn("    by Jocke The Beast."); Scr.WriteLn; Scr.WriteLn;
     Scr.WriteStrLn(" Credits:"); Scr.SetColors(Scr.GreenOnBlack);
     Scr.WriteStrLn(" Game made by:    Jocke The Beast");
     Scr.WriteStrLn(" Graphic:         Microsoft ASCII");

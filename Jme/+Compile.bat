@@ -41,7 +41,7 @@
 @RMDIR /S /Q CP\DWColors
 @IF NOT EXIST DWRsrc.cps CALL ..\Bin\cprun gpcp ..\Mod\DWRsrc.cp
 @IF errorlevel 1 PAUSE
-@CALL ..\Bin\cprun gpcp ..\Mod\DarkWoods.cp
+@CALL ..\Bin\cprun gpcp ..\Mod\DarkWoods.Mod
 @IF errorlevel 1 PAUSE
 
 @IF NOT EXIST ${build}\obfuscate MKDIR ${build}\obfuscate
