@@ -3,11 +3,15 @@
 @SET Bin=..\..\..\..\ZXDev\Bin
 @SET Lib=..\..\..\..\ZXDev\Lib
 
+@COPY /B /Y DWColorsS.h DWColors.h
+@COPY /B /Y DWConfigS.h DWConfig.h
+@COPY /B /Y GrCfgS.h GrCfg.h
 %Bin%\sdcc -c %1.c -mz80 --opt-code-size -I "." -I %Lib%
 @IF errorlevel 1 PAUSE
-%Bin%\sdcc DWoods2.c -mz80 --code-loc %CodeAddr% --data-loc %DataAddr% --no-std-crt0 --opt-code-size -I "." -I %Lib% Dw2Config.rel Dw2Rsrc.rel SemiAction.rel XDev.lib Basic.lib
+%Bin%\sdcc DarkWoods.c -mz80 --code-loc %CodeAddr% --data-loc %DataAddr% --opt-code-size -I "." -I %Lib% DWConfig.rel DWRsrc.rel XDev.lib Basic.lib
 @IF errorlevel 1 PAUSE
 
-%Bin%\hex2bin DWoods2.ihx
-%Bin%\bin2data.exe -rem -org %CodeAddr% DWoods2.bin ..\DWoods2.tap DWoods2
-@START ..\DWoods2.tap
+%Bin%\hex2bin DarkWoods.ihx
+%Bin%\bin2data.exe -rem -org %CodeAddr% DarkWoods.bin ..\DarkWoods.tap DarkWoods
+::%Bin%\bin2data.exe -data -org %CodeAddr% DarkWoods.bin ..\DarkWoods.tap DarkWoods
+@START ..\DarkWoods.tap

@@ -7,10 +7,10 @@
 
 
 
-export void *DW2Config__init(void)
+export void *GrCfg__init(void)
 {
 	__DEFMOD;
-	__REGMOD("DW2Config", 0);
+	__REGMOD("GrCfg", 0);
 /* BEGIN */
 	__ENDMOD;
 }

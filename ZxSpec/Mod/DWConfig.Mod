@@ -1,4 +1,4 @@
-MODULE DW2Config;
+MODULE DWConfig;
 
 CONST
   (* Versia: *)
@@ -9,8 +9,8 @@ CONST
   ScreenWidth* = 32;
 
   (* Title: *)
-  TitleX*      =  1;
-  TitleY*      =  2;
+  SkullX*      =  1;
+  SkullY*      =  2;
   FrameX*      = 14;
   FrameY*      =  4;
   FrameWidth*  = 17;
@@ -26,5 +26,7 @@ CONST
   QuitTitlePos*   =  QuitMenuX + 1;
   QuitMenuWidth*  = 30;
   QuitMenuHeight* =  4;
+  QuitThanxX*     =  3;
+  QuitThanxY*     =  2;
 
-END DW2Config.
+END DWConfig.

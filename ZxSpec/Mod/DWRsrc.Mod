@@ -1,11 +1,13 @@
-MODULE DW2Rsrc;
-IMPORT B := Basic, Platform;
+MODULE DWRsrc;
+IMPORT SYSTEM, B := Basic, Platform, GrFonts;
 
   (* Fonts: *)
 CONST
-  FontZxSpecROM8x8* = B.RomFont;
+  ZxSpecRom8x8* = B.RomFont;
+
 VAR
-  FontMsDosCGA8x8- : Platform.UInt16;
+  MsDosCga8x8- : GrFonts.Font;
+
   (* Mono tiles: *)
   CornerLeftUp- , CornerRightUp- , CornerLeftDown- , CornerRightDown- ,
   VerticalLine- , HorizontalLine-,
@@ -13,15 +15,17 @@ VAR
   CornerLeftUp2-, HorizontalLine2-, HorizontalLine3-, CornerRightDown2-,
   CornerRightUp2-, CornerLeftDown2-, VerticalLine2-, VerticalLine3-,
 
-  Face-, Tree-, Bush-, Arrow-, Potion-, Key-, Gold-, Bow-, Wall-,
+  Eduin-, Tree-, Bush-, Arrows-, Potion-, Key-, Gold-, Bow-, Wall-,
   Door-, Jewel-, Firewall-, Trap-, Orc-, Troll-, RingOfFire-
     : Platform.UInt16;
 
-BEGIN (*
+BEGIN
+  MsDosCga8x8 := GrFonts.MsDosCga8x8;
+(*
   B.DATA8(000H,000H,000H,000H,000H,000H,000H,000H); (* NUL *)
   B.DATA8(07EH,081H,0A5H,081H,0BDH,099H,081H,07EH); (* SOH *)
 *)
-  B.DEFDATA(Face, 8);
+  B.DEFDATA(Eduin, 8);
   B.DATA8(07EH,0FFH,0DBH,0FFH,0C3H,0E7H,0FFH,07EH); (* STX *)
 (*
   B.DATA8(06CH,0FEH,0FEH,0FEH,07CH,038H,010H,000H); (* ETX *)
@@ -58,7 +62,7 @@ BEGIN (*
   B.DATA8(018H,018H,018H,018H,07EH,03CH,018H,000H); (* EM *)
   B.DATA8(000H,018H,00CH,0FEH,00CH,018H,000H,000H); (* SUB *)
 *)
-  B.DEFDATA(Arrow, 8);
+  B.DEFDATA(Arrows, 8);
   B.DATA8(000H,030H,060H,0FEH,060H,030H,000H,000H); (* ESC *)
 
   B.DEFDATA(Potion, 8);
@@ -251,4 +255,4 @@ BEGIN (*
   B.DATA8(000H,000H,07CH,07CH,07CH,07CH,000H,000H,
   B.DATA8(000H,000H,000H,000H,000H,000H,000H,000H,
 *)
-END DW2Rsrc.
+END DWRsrc.

@@ -1,15 +1,15 @@
-MODULE DW2Colors;
+MODULE DWColors;
 
 IMPORT Console;
 
 CONST
-  Face    * = Console.YellowOnBlack;
+  Eduin   * = Console.YellowOnBlack;
   Tree    * = Console.GreenOnBlack;
   Bush    * = Console.LGreenOnBlack;
   Wall    * = Console.WhiteOnBlack;
   Door    * = Console.WhiteOnBlack;
   Bow     * = Console.LWhiteOnBlack;
-  Arrow   * = Console.LWhiteOnBlack;
+  Arrows  * = Console.LWhiteOnBlack;
   Potion  * = Console.LRedOnBlack;
   Key     * = Console.YellowOnBlack;
   Gold    * = Console.YellowOnBlack;
@@ -20,4 +20,4 @@ CONST
   Troll   * = Console.RedOnBlack;
   RingOfFire* = Console.BlueOnBlack;
 
-END DW2Colors.
+END DWColors.
