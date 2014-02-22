@@ -1,8 +1,6 @@
-Port of games "Dark Woods" and "Dark Woods 2" by Jocke The Beast.
+Port of game "Dark Woods" by Jocke The Beast.
 
 http://jockethebeast.phatcode.net/darkwoods.shtml
-http://jockethebeast.phatcode.net/darkwoods2.shtml
-
 http://zx.oberon2.ru/forum/viewtopic.php?f=5&t=4
 
 Language: Oberon-2
@@ -15,6 +13,7 @@ This project is non-commercial and open source.
 Project structure:
 
   Basic - sources of Dark Woods 2 FreeBASIC port (by Zap)
+  Jme - Dark Woods for Java ME
   Win32 - Dark Woods for Win32 (WinDev)
   ZxSpec - Dark Woods for ZX Spectrum (ZXDev)
 
