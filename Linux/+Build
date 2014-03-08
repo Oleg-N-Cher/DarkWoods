@@ -1,0 +1,9 @@
+cd Obj
+WinObj=../../Win32/Obj
+WinLib=../../Win32/Lib
+WinDevLib=../../../../WinDev/Lib
+LinDevLib=../../../../LinDev/Lib
+tcc $WinLib/DWRsrc.c $WinObj/DWConfig.c $WinObj/DarkWoods.c -D_LINGUI -I "." -I $WinDevLib -I $WinLib $LinDevLib/LinDev.a $LinDevLib/SdlLib.a -L/usr/lib -lSDL -oDarkWoods
+mv DarkWoods ..
+cd ..
+chmod 755 DarkWoods
